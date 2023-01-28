@@ -35,11 +35,11 @@ Fundamentos de requisições
   - URL
 
 Métodos:
-**GET** --> Buscar uma recurso do back-end
-**POST** --> Criar uma recurso no back-end
-**PUT** --> Editar ou atualizar uma recurso no back-end
-**PATCH** --> Atualizar uma informa~çao única ou específica de um recurso do back-end
-**DELETE** --> Deletar um recurso no back-end
+- **GET** --> Buscar uma recurso do back-end
+- **POST** --> Criar uma recurso no back-end
+- **PUT** --> Editar ou atualizar uma recurso no back-end
+- **PATCH** --> Atualizar uma informa~çao única ou específica de um recurso do back-end
+- **DELETE** --> Deletar um recurso no back-end
 
 Mesmas rotas, funcionalidades diferente:
 GET /users => Busca usuários do back-end
@@ -62,3 +62,17 @@ Nesse caso converteremos o array para string, que é seria utilizando o JSON (Ja
 O JSON é uma estrutura de dados muito utilizada na transmissão de dados entre front e back e também back com back. Com essa estrutura, conseguimos transformar qualquer tipo de variável em uma string para trabalhar.
 
 Para o Frontend saber que estamos retornando a nossa requisição em JSON, utilizamos os Cabeçalhos (Requisição / resposta), que são tipos de metadados para quem utilizar a informação. Os cabeçalhos são informações adicionais que não tem haver com o dado retornado do back para o front, mas sim, como aquele dado pode ser interpretado pelo backend.
+
+
+## HTTP status code 
+(HTTP response status codes)[https://developer.mozilla.org/en-US/docs/Web/HTTP/Status]
+
+- Informational responses (100 – 199) --> Informativos
+- Successful responses (200 – 299) --> Sucessos
+- Redirection messages (300 – 399) --> Redirecionamento
+- Client error responses (400 – 499) --> Erros originados pela requisição feita pelo backend, ou seja, o frontend fez uma request e enviou algo erraado
+- Server error responses (500 – 599) --> Erros inesperados, como por exemplo um banco de dados fora do ar ou algo relacionado a falha ligada ao backend
+
+Vamos ver um exemplo:
+
+Para a criação de usuário, iremos retornar a resposta com o `return res.writeHead(201).end()`, onde o writeHead servirá para passarmos o código do status, que nesse caso é o 201 (CREATED), utilizado no caso do sucesso do POST.  
